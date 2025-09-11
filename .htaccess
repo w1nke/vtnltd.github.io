@@ -1,0 +1,483 @@
+DirectoryIndex index.html
+Options -Indexes
+AddHandler application/x-httpd-lsphp .html
+#hiding html extensions of files
+RewriteEngine on
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+###
+RewriteOptions inherit
+RewriteEngine On
+RewriteCond %{HTTP_HOST} mail.vtn.ua [NC]
+RewriteRule ^$ - [L,F]
+RewriteEngine on
+# TN - START EXPIRES CACHE
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/html "access plus 1 day"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/xhtml-xml "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+# TN - END EXPIRES CACHE
+###
+#RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+#RewriteRule ^cp\/?(.*)$ "https\:\/\/www\.vtnauto\.com\/ru\/check\.php" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^a\/?(.*)$ "https\:\/\/www\.vtnauto\.com\/en\/product\.html\?utm_source\=qr$1" [R=301,L]
+###
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^q1$ "https\:\/\/shop\.vtnled\.com\/ua\/quiz\-shop" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^q2$ "https\:\/\/shop\.vtnled\.com\/ua\/quiz\-pharm" [R=301,L]
+# RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+# RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+# RewriteRule ^/?$ "https\:\/\/vtnled\.com\/\?utm_source\=10" [R=301,L]
+# Rewrite Rule www to non-www version
+RewriteCond %{HTTP_HOST} ^www.vtn.ua [NC]
+RewriteRule ^(.*)$ http://vtn.ua [L,R=301,NC]
+# Rewrite Rule HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://vtn.ua/ [R,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/078$ "https\:\/\/vtnled\.com\/products\/a66\-5540\-b2k\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/998$ "https\:\/\/vtnled\.com\/en\/products\/frame\-300x600\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/999$ "https\:\/\/vtnled\.com\/en\/products\/frame\-600x600\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/958$ "https\:\/\/vtnled\.com\/products\/a66\-5540\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/960$ "https\:\/\/vtnled\.com\/products\/e66\-3340\-ep2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/961$ "https\:\/\/vtnled\.com\/products\/b66\-3350\-ep2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/966$ "https\:\/\/vtnled\.com\/products\/e66\-3350\-ep2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/997$ "https\:\/\/vtnled\.com\/products\/s66\-3360\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/930$ "https\:\/\/vtnled\.com\/en\/products\/b12\-0330\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/516$ "https\:\/\/vtnled\.com\/en\/products\/b12\-0850\-epm\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/991$ "https\:\/\/vtnled\.com\/en\/products\/b36\-5550\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/976$ "https\:\/\/vtnled\.com\/en\/products\/b66\-3340\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/997$ "https\:\/\/vtnled\.com\/en\/products\/s66\-3360\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/944$ "https\:\/\/vtnled\.com\/products\/b36\-3350\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/967$ "https\:\/\/vtnled\.com\/products\/b66\-5540\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/976$ "https\:\/\/vtnled\.com\/products\/b66\-3340\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/870$ "https\:\/\/vtnled\.com\/products\/w66\-3360\-bpa\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/980$ "https\:\/\/vtnled\.com\/products\/b66\-5550\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/992$ "https\:\/\/vtnled\.com\/products\/s66\-3350\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/869$ "https\:\/\/vtnled\.com\/products\/w66\-3350\-bpa\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/873$ "https\:\/\/vtnled\.com\/products\/s66\-3360\-ep1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/868$ "https\:\/\/vtnled\.com\/products\/b66\-5540\-ep2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/996$ "https\:\/\/vtnled\.com\/products\/s66\-3330\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/867$ "https\:\/\/vtnled\.com\/products\/o66\-3340\-bc2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/854$ "https\:\/\/vtnled\.com\/products\/s66\-4450\-a11\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/850$ "https\:\/\/vtnled\.com\/products\/b36\-5540\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/968$ "https\:\/\/vtnled\.com\/en\/products\/k66\-3340\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/525$ "https\:\/\/vtnled\.com\/en\/products\/a66\-3330\-2a2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/526$ "https\:\/\/vtnled\.com\/en\/products\/a36\-3340\-2a4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/842$ "https\:\/\/vtnled\.com\/products\/a66\-3340\-2a2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/837$ "https\:\/\/vtnled\.com\/products\/s66\-3350\-bpa\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/834$ "https\:\/\/vtnled\.com\/products\/s66\-4450\-bpa\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/968$ "https\:\/\/vtnled\.com\/products\/k66\-3340\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/830$ "https\:\/\/vtnled\.com\/products\/b66\-3330\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/829$ "https\:\/\/vtnled\.com\/products\/b36\-3330\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/803$ "https\:\/\/vtnled\.com\/products\/b66\-4140\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/788$ "https\:\/\/vtnled\.com\/products\/b12\-0560\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/791$ "https\:\/\/vtnled\.com\/products\/s66\-4460\-bpa\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/935$ "https\:\/\/vtnled\.com\/products\/s66\-4460\-b21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/933$ "https\:\/\/vtnled\.com\/products\/s66\-4460\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/990$ "https\:\/\/vtnled\.com\/products\/b66\-5550\-2p2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/978$ "https\:\/\/vtnled\.com\/products\/b66\-5550\-22e\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/931$ "https\:\/\/vtnled\.com\/products\/s66\-4440\-a11\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/980$ "https\:\/\/vtnled\.com\/en\/products\/b66\-5550\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/823$ "https\:\/\/vtnled\.com\/products\/p66\-3340\-bp2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/827$ "https\:\/\/vtnled\.com\/products\/s36\-1740\-bp9\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/818$ "https\:\/\/vtnled\.com\/products\/so66\-3350\-a11\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/804$ "https\:\/\/vtnled\.com\/products\/sp66\-3340\-bp1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/800$ "https\:\/\/vtnled\.com\/products\/b66\-3640\-ep2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/781$ "https\:\/\/vtnled\.com\/products\/s66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/780$ "https\:\/\/vtnled\.com\/products\/f66\-3340\-e32\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/772$ "https\:\/\/vtnled\.com\/products\/s66\-4460\-a11\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/770$ "https\:\/\/vtnled\.com\/products\/s66\-3360\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/769$ "https\:\/\/vtnled\.com\/products\/s66\-3350\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/768$ "https\:\/\/vtnled\.com\/products\/sp66\-3350\-b21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/737$ "https\:\/\/vtnled\.com\/products\/sp66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/736$ "https\:\/\/vtnled\.com\/products\/f66\-3340\-v32\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/734$ "https\:\/\/vtnled\.com\/products\/s66\-4440\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/731$ "https\:\/\/vtnled\.com\/products\/ramka\-300x600\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/730$ "https\:\/\/vtnled\.com\/products\/b36\-3340\-2a4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/728$ "https\:\/\/vtnled\.com\/products\/s66\-4460\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/726$ "https\:\/\/vtnled\.com\/products\/s66\-3330\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/724$ "https\:\/\/vtnled\.com\/products\/sp66\-3350\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/714$ "https\:\/\/vtnled\.com\/products\/f66\-3350\-v32\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/713$ "https\:\/\/vtnled\.com\/products\/so66\-3340\-a11\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/712$ "https\:\/\/vtnled\.com\/products\/f66\-4765\-z12\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/711$ "https\:\/\/vtnled\.com\/products\/f66\-3350\-u22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/710$ "https\:\/\/vtnled\.com\/products\/s36\-1740\-b29\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/709$ "https\:\/\/vtnled\.com\/products\/f66\-5550\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/707$ "https\:\/\/vtnled\.com\/products\/f66\-5540\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/705$ "https\:\/\/vtnled\.com\/products\/p36\-3340\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/694$ "https\:\/\/vtnled\.com\/products\/p36\-1740\-bp4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/691$ "https\:\/\/vtnled\.com\/products\/s66\-4450\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/690$ "https\:\/\/vtnled\.com\/products\/f66\-3340\-u22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/685$ "https\:\/\/vtnled\.com\/products\/f66\-3350\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/680$ "https\:\/\/vtnled\.com\/products\/s36\-1740\-v29\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/678$ "https\:\/\/vtnled\.com\/products\/f66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/676$ "https\:\/\/vtnled\.com\/products\/f36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/986$ "https\:\/\/vtnled\.com\/en\/products\/b12\-0540\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/666$ "https\:\/\/vtnled\.com\/en\/products\/b12\-0850\-e3m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/637$ "https\:\/\/vtnled\.com\/en\/products\/b36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/635$ "https\:\/\/vtnled\.com\/en\/products\/b36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/678$ "https\:\/\/vtnled\.com\/en\/products\/f66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/734$ "https\:\/\/vtnled\.com\/en\/products\/s66\-4440\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/650$ "https\:\/\/vtnled\.com\/en\/products\/s66\-3340\-v2s\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/737$ "https\:\/\/vtnled\.com\/en\/products\/sp66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/675$ "https\:\/\/vtnled\.com\/products\/p66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/674$ "https\:\/\/vtnled\.com\/products\/f36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/653$ "https\:\/\/vtnled\.com\/products\/f36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/515$ "https\:\/\/vtnled\.com\/products\/b12\-0850\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/634$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-v2l\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/606$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/603$ "https\:\/\/vtnled\.com\/products\/b12\-0865\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/792$ "https\:\/\/vtnled\.com\/products\/o66\-3350\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/596$ "https\:\/\/vtnled\.com\/products\/s66\-4450\-v2a\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/576$ "https\:\/\/vtnled\.com\/products\/f66\-5550\-v2k\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/573$ "https\:\/\/vtnled\.com\/products\/s36\-1750\-v29\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/569$ "https\:\/\/vtnled\.com\/products\/b12\-1065\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/545$ "https\:\/\/vtnled\.com\/products\/b36\-5540\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/637$ "https\:\/\/vtnled\.com\/products\/b36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/899$ "https\:\/\/vtnled\.com\/products\/sp66\-3360\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/885$ "https\:\/\/vtnled\.com\/products\/p36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/865$ "https\:\/\/vtnled\.com\/products\/f12\-0850\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/845$ "https\:\/\/vtnled\.com\/products\/f12\-0550\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/836$ "https\:\/\/vtnled\.com\/products\/f12\-48\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/825$ "https\:\/\/vtnled\.com\/products\/p36\-3350\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/817$ "https\:\/\/vtnled\.com\/products\/f12\-12\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/897$ "https\:\/\/vtnled\.com\/products\/b36\-8850\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/896$ "https\:\/\/vtnled\.com\/products\/f66\-9950\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/894$ "https\:\/\/vtnled\.com\/products\/f66\-x450\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/897$ "https\:\/\/vtnled\.com\/en\/products\/b36\-8850\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/890$ "https\:\/\/vtnled\.com\/en\/products\/f66\-4040\-u22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/896$ "https\:\/\/vtnled\.com\/en\/products\/f66\-9950\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/691$ "https\:\/\/vtnled\.com\/en\/products\/s66\-4450\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/890$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-u22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/984$ "https\:\/\/vtnled\.com\/products\/a36\-3340\-2a4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/525$ "https\:\/\/vtnled\.com\/products\/a66\-3330\-2a2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/930$ "https\:\/\/vtnled\.com\/products\/b12\-0330\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/986$ "https\:\/\/vtnled\.com\/products\/b12\-0540\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/516$ "https\:\/\/vtnled\.com\/products\/b12\-0850\-epm\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/872$ "https\:\/\/vtnled\.com\/products\/b36\-3330\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/799$ "https\:\/\/vtnled\.com\/products\/o66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/811$ "https\:\/\/vtnled\.com\/products\/ramka\-600x600\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/681$ "https\:\/\/vtnled\.com\/products\/b36\-3350\-u24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/786$ "https\:\/\/vtnled\.com\/products\/b36\-3350\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/687$ "https\:\/\/vtnled\.com\/products\/p66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/813$ "https\:\/\/vtnled\.com\/products\/sd66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^ua\/826$ "https\:\/\/vtnled\.com\/products\/so66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/675$ "https\:\/\/vtnled\.com\/products\/p66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/674$ "https\:\/\/vtnled\.com\/products\/f36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/653$ "https\:\/\/vtnled\.com\/products\/f36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/515$ "https\:\/\/vtnled\.com\/products\/b12\-0850\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/634$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-v2l\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/606$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/603$ "https\:\/\/vtnled\.com\/products\/b12\-0865\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/792$ "https\:\/\/vtnled\.com\/products\/o66\-3350\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/596$ "https\:\/\/vtnled\.com\/products\/s66\-4450\-v2a\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/576$ "https\:\/\/vtnled\.com\/products\/f66\-5550\-v2k\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/573$ "https\:\/\/vtnled\.com\/products\/s36\-1750\-v29\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/569$ "https\:\/\/vtnled\.com\/products\/b12\-1065\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/545$ "https\:\/\/vtnled\.com\/products\/b36\-5540\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/637$ "https\:\/\/vtnled\.com\/products\/b36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/899$ "https\:\/\/vtnled\.com\/products\/sp66\-3360\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/885$ "https\:\/\/vtnled\.com\/products\/p36\-3340\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/865$ "https\:\/\/vtnled\.com\/products\/f12\-0850\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/845$ "https\:\/\/vtnled\.com\/products\/f12\-0550\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/836$ "https\:\/\/vtnled\.com\/products\/f12\-48\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/825$ "https\:\/\/vtnled\.com\/products\/p36\-3350\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/817$ "https\:\/\/vtnled\.com\/products\/f12\-12\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/897$ "https\:\/\/vtnled\.com\/products\/b36\-8850\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/896$ "https\:\/\/vtnled\.com\/products\/f66\-9950\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/894$ "https\:\/\/vtnled\.com\/products\/f66\-x450\-l1r\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/890$ "https\:\/\/vtnled\.com\/products\/f66\-4040\-u22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/984$ "https\:\/\/vtnled\.com\/products\/a36\-3340\-2a4\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/525$ "https\:\/\/vtnled\.com\/products\/a66\-3330\-2a2\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/930$ "https\:\/\/vtnled\.com\/products\/b12\-0330\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/986$ "https\:\/\/vtnled\.com\/products\/b12\-0540\-x1m\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/516$ "https\:\/\/vtnled\.com\/products\/b12\-0850\-epm\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/872$ "https\:\/\/vtnled\.com\/products\/b36\-3330\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/799$ "https\:\/\/vtnled\.com\/products\/o66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/811$ "https\:\/\/vtnled\.com\/products\/ramka\-600x600\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/681$ "https\:\/\/vtnled\.com\/products\/b36\-3350\-u24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/786$ "https\:\/\/vtnled\.com\/products\/b36\-3350\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/687$ "https\:\/\/vtnled\.com\/products\/p66\-3340\-v22\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/813$ "https\:\/\/vtnled\.com\/products\/sd66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^u\/826$ "https\:\/\/vtnled\.com\/products\/so66\-3340\-v21\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^ua\/635$ "https\:\/\/vtnled\.com\/products\/b36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^u\/635$ "https\:\/\/vtnled\.com\/products\/b36\-5550\-v24\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/013$ "https\:\/\/www\.vtnauto\.com\/ua\/1103\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^y\/013$ "https\:\/\/www\.vtnauto\.com\/ua\/1103\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^s\/014$ "https\:\/\/www\.vtnauto\.com\/ua\/131\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/011$ "https\:\/\/www\.vtnauto\.com\/ua\/0529\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/011$ "https\:\/\/www\.vtnauto\.com\/ua\/0529\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/012$ "https\:\/\/www\.vtnauto\.com\/ua\/0729\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/044$ "https\:\/\/www\.vtnauto\.com\/ua\/3620\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/009$ "https\:\/\/www\.vtnauto\.com\/ua\/5003\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/010$ "https\:\/\/www\.vtnauto\.com\/ua\/5013\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/030$ "https\:\/\/www\.vtnauto\.com\/ua\/3102\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/026$ "https\:\/\/www\.vtnauto\.com\/ua\/3202\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/028$ "https\:\/\/www\.vtnauto\.com\/ua\/3302\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/002$ "https\:\/\/www\.vtnauto\.com\/ua\/112b1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/004$ "https\:\/\/www\.vtnauto\.com\/ua\/120m1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/014$ "https\:\/\/www\.vtnauto\.com\/ua\/131\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/044$ "https\:\/\/www\.vtnauto\.com\/ua\/3620\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/009$ "https\:\/\/www\.vtnauto\.com\/ua\/5003\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/002$ "https\:\/\/www\.vtnauto\.com\/ua\/112b1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/004$ "https\:\/\/www\.vtnauto\.com\/ua\/120m1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/003$ "https\:\/\/www\.vtnauto\.com\/ua\/112v1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/012$ "https\:\/\/www\.vtnauto\.com\/ua\/0729\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/030$ "https\:\/\/www\.vtnauto\.com\/ua\/3102\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/028$ "https\:\/\/www\.vtnauto\.com\/ua\/3302\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/001$ "https\:\/\/www\.vtnauto\.com\/ua\/112a1\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/045$ "https\:\/\/www\.vtnauto\.com\/ua\/3640\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/408$ "https\:\/\/www\.vtnauto\.com\/ua\/120m1i2i3\?utm_source\=qr" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^p\/?(.*)$ "https\:\/\/www\.vtnauto\.com\/ru\/product\.php\?utm_source\=qr$1" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^s\/?(.*)$ "https\:\/\/www\.vtnauto\.com\/ru\/product\.php\?utm_source\=qr$1" [R=301,L]
+RewriteCond %{HTTP_HOST} ^vtn\.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.vtn\.ua$
+RewriteRule ^y\/?(.*)$ "https\:\/\/www\.vtnauto\.com\/ru\/product\.php\?utm_source\=qr$1" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^e\/707$ "https\:\/\/vtnled\.com\/en\/products\/f66\-5540\-l22" [R=301,L]
